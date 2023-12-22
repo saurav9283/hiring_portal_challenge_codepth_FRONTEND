@@ -22,7 +22,7 @@ const TodoList = () => {
   const fetchTodos = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:5000/getAllTask?_limit=4"
+        "https://hiring-portal-challenge-codepth-api.vercel.app/getAllTask?_limit=4"
       );
       console.log(response.data);
       const { allTasks } = response.data;
@@ -53,7 +53,7 @@ const TodoList = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/addingTask",
+        "https://hiring-portal-challenge-codepth-api.vercel.app/addingTask",
         newTask
       );
       console.log(response.data);
@@ -85,7 +85,7 @@ const TodoList = () => {
   // Delete a task
   const handleDeleteTask = async (taskId) => {
     try {
-        const response = await axios.delete(`http://localhost:5000/deleteTask/${taskId}`)
+        const response = await axios.delete(`https://hiring-portal-challenge-codepth-api.vercel.app/deleteTask/${taskId}`)
 
         if (response.data.msg === "Task deleted successfully") {
             setTasks(prevTasks => prevTasks.filter(task => task._id !== taskId));
@@ -121,7 +121,7 @@ const TodoList = () => {
   
     try {
       const response = await axios.put(
-        `http://localhost:5000/editTask/${editTaskId}`,
+        `https://hiring-portal-challenge-codepth-api.vercel.app/editTask/${editTaskId}`,
         updatedTask
       );
   
